@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>闲人山庄</title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" href="css/jquery.fullPage.css" />
+		<link rel="stylesheet" href="css/lightbox.css" />
+		<style>
+		body{font-family: "微软雅黑";font-size: 13px;}
+			.section{background-image: url(upload/img/s1.jpg);background-size: cover;}
+			.s2{ background-image: url(upload/img/s2.jpg); }
+			.s3{ background-image: url(upload/img/s3.jpg); }
+			.s4{ background-image: url(upload/img/s4.jpg); }
+			.s5{ background-image: url(upload/img/s5.jpg); }
+			.s6{ background-image: url(upload/img/s6.jpg); }
+			.s7{ background-image: url(upload/img/s7.jpg); }
+			.s8{ background-image: url(upload/img/s8.jpg); }
+			.s2 h3{left: -100%;transition: all 1.5s;position: relative;top: -200px;}
+			.leftimg{width: 600px;background-color: #000000;height: 70px;padding-left: 90px;float: left;}
+			#menu{height: 70px;width: 100%;position: fixed;top: 0;left: 0;background-color: rgb(11,30,54);z-index: 100000000000;background-repeat: no-repeat;line-height: 100px;}
+			#menu li{float: left;width: 80px;text-align: center;}
+			#menu li a{color: #fff;display: inline-block;font-size: 13px;}
+			#menu li:hover,.active{height: 66px;background-color: rgb(5,88,70);border-bottom:4px solid rgb(192,149,86);line-height: 80px;}
+			#menu ul{position: relative;left: 150px;float: left;}
+			.ringz{float: left;margin-left: 360px;color: #fff;position: relative;top: -35px;font-size: 12px;}
+			.ringz a{color: #fff;display: inline-block;width: 50px;}
+			.ringz .zhong{color: rgb(192,149,86);margin-left: 10px;}
+			.s1 h3{position: relative;left:1440px;top: 380px;}
+			.prenext{ position: fixed; z-index: 150; left: 50%; bottom: 50px; width:112px; height: 70px; background:url("images/gd_03.png") no-repeat center center; cursor: pointer; transition:all .3s ease;}
+			.prenext:hover{ transform:scale(1.2,1.2); transition: all 1s;}
+			.pre{ background-image: url(images/gdd_03.png);}
+			.s2 .box{width: 250px;height: 190px;padding: 10px;background-color: rgba(0,0,0,.6);border-radius: 4px;position: relative;left: 1250px;bottom: -100%;transition: all 2s;}
+			.s2 .box a{width: 46%;height: 46%;border: 2px solid #fff;display: block;overflow: hidden;float: left;transition: all 1s;}
+			.box a:hover{transform: scale(1.1,1.1);transition: all 1s;}
+			.s2 .box a:nth-child(1),.s2 .box a:nth-child(3){margin-right: 4%;}
+			.s2 .box a:nth-child(1),.s2 .box a:nth-child(2){margin-bottom: 4%;}
+			.box a:hover img{transform: scale(1.2,1.2);transition: all 1s;}
+			.box a img{width:auto;height:100%;transition: all 1s;}
+			.header{ width: 100%; height: 70px; background-color: rgba(0,0,0,.6); line-height: 60px; position: fixed;left:0;top:0; z-index: 1000;display: none;padding-left: 1000px;}
+			#mens li{float: left;width: 80px;text-align: center;}
+			#mens li a{color: #fff;display: inline-block;font-size: 13px;}
+			.s3 .box{width: 360px;height: 190px;padding: 10px;background-color: rgba(0,0,0,.6);border-radius: 4px;position: relative;left: -100%;bottom: 10px;transition: all 2s;}
+			.s3 .box a{width: 30%;height: 45%;border: 2px solid #fff;display: inline-block;overflow: hidden;transition: all 1s;}
+			.s3 .box a:nth-child(1),.s3 .box a:nth-child(2),.s3 .box a:nth-child(4),.s3 .box a:nth-child(5){margin-right: 2%;}
+			.s3 .box a:nth-child(4),.s3 .box a:nth-child(5),.s3 .box a:nth-child(6){margin-top:-6%;}
+			#mens li:hover{height: 66px;background-color: rgb(5,88,70);border-bottom:4px solid rgb(192,149,86);line-height: 80px;}
+			.s3 h3{left: -100%;transition: all 1.5s;position: relative;top: -100px;}
+			.s4 .box{width: 250px;height: 190px;padding: 10px;background-color: rgba(0,0,0,.6);border-radius: 4px;position: relative;left: -100%;bottom: 50px;transition: all 2s;}
+			.s4 .box a{width: 46%;height: 46%;border: 2px solid #fff;display: block;overflow: hidden;float: left;transition: all 1s;}
+			.s4 .box a:nth-child(1),.s4 .box a:nth-child(3){margin-right: 4%;}
+			.s4 .box a:nth-child(1),.s4 .box a:nth-child(2){margin-bottom: 4%;}
+			.s4 h3{left: -100%;transition: all 1.5s;position: relative;top: 350px;}
+			.s5 .box{width: 120px;height: 190px;padding: 10px;background-color: rgba(0,0,0,.6);border-radius: 4px;position: relative;left: -110%;bottom: -100px;transition: all 3s;}
+			.s5 .box a{width: 93%;height: 46%;border: 2px solid #fff;display: block;overflow: hidden;transition: all 1s;}
+			.s5 .box a:nth-child(1){margin-bottom: 5%;}
+			.s5 h3{left: -100%;transition: all 3s;position: relative;top: 300px;}
+			.s6 .box{width: 250px;height: 190px;padding: 10px;background-color: rgba(0,0,0,.7);border-radius: 4px;position: relative;left: 1100px;bottom: -100%;transition: all 2s;}
+			.s6 .box a{width: 46%;height: 46%;border: 2px solid #fff;display: block;overflow: hidden;float: left;transition: all 1s;}
+			.s6 .box a:nth-child(1),.s6 .box a:nth-child(3){margin-right: 4%;}
+			.s6 .box a:nth-child(1),.s6 .box a:nth-child(2){margin-bottom: 4%;}
+			.s6 h3{left: -100%;transition: all 1.5s;position: relative;top: -150px;}
+			.s7 h3{left:470px;transition: all 1.5s;position: relative;top: -160px;}
+			.s7 .box{height: 155px;width: 830px;background-color: rgba(91,139,108,.9);padding: 40px; color: #fff;position: relative;left: 650px;top: -120px;}
+			.s7 .box p{line-height: 40px;font-size: 35px;}
+			.s8 h3{position: relative;top: 370px;left:570px;}
+			.s8 .boox{height: 170px;width: 330px;background-color: rgba(0,0,0,.8);font-family: simsun;padding: 20px;border-radius: 10px;position: relative;top: -175px;left:580px;}
+			.s8 .boox h5{font-size: 18px;line-height: 25px;color: rgb(207,164,95);}
+			.s8 .boox p{font-size: 13px;line-height: 18px;color: rgb(207,164,95);}
+			.s8 .lianxi{font-family: simsun;position: relative;top: -13px;left:1180px;width: 400px;}
+			.s8 .lianxi p{font-size: 15px;line-height: 20px;color: rgb(207,164,95);}
+		</style>
+	</head>
+	<body>
+		<div class="header">
+    <ul id="mens">
+        	<li data-menuanchor="page1"><a href="#page1">首页</a></li>
+			<li data-menuanchor="page2"><a href="#page2">世外桃源</a></li>
+			<li data-menuanchor="page3"><a href="#page3">源生原味</a></li>
+			<li data-menuanchor="page4"><a href="#page4">星星作伴</a></li>
+			<li data-menuanchor="page5"><a href="#page5">创想意境</a></li>
+			<li data-menuanchor="page6"><a href="#page6">闲云圣景</a></li>
+			<li data-menuanchor="page7"><a href="#page7">活动</a></li>
+			<li data-menuanchor="page8"><a href="#page8">联系我们</a></li>
+    </ul>
+		</div>
+		<div id="menu">
+			<div class="leftimg"><img src="images/logo-1_03.png" height="65px"/></div>
+		<ul class="clearfix">
+			<li data-menuanchor="page1" class="active"><a href="#page1">首页</a></li>
+			<li data-menuanchor="page2"><a href="#page2">世外桃源</a></li>
+			<li data-menuanchor="page3"><a href="#page3">源生原味</a></li>
+			<li data-menuanchor="page4"><a href="#page4">星星作伴</a></li>
+			<li data-menuanchor="page5"><a href="#page5">创想意境</a></li>
+			<li data-menuanchor="page6"><a href="#page6">闲云圣景</a></li>
+			<li data-menuanchor="page7"><a href="#page7">活动</a></li>
+			<li data-menuanchor="page8"><a href="#page8">联系我们</a></li>					
+		</ul>
+		<div class="ringz"><a href="">中文版</a>|<a href="" class="zhong">ENGLISH</a></div>
+		</div>
+			<div class="prenext"></div>
+		<div id="main">
+		
+			<div class="section s1">
+				<h3><img src="images/x1_03.png" alt="" /></h3>
+			</div>
+			<div class="section s2">
+				<h3><img src="images/01_03.png"/></h3>
+				<div class="box">
+				
+					<a href="upload/img/s1.jpg" data-lightbox="s2"><img src="upload/20141106133101.jpg" alt="" /></a>
+					<a href="upload/img/s2.jpg" data-lightbox="s2"><img src="upload/20141106133106.jpg" alt="" /></a>
+					<a href="upload/img/s3.jpg" data-lightbox="s2"><img src="upload/20141106133111.jpg" alt="" /></a>
+					<a href="upload/img/s4.jpg" data-lightbox="s2"><img src="upload/20141106133129.jpg" alt="" /></a>
+				
+				</div>
+			</div>
+			<div class="section s3">
+				<h3><img src="images/02_03.png"/></h3>
+				<div class="box">
+					<a href="upload/img/s1.jpg" data-lightbox="s3"><img src="upload/20141106133101.jpg" alt="" /></a>
+					<a href="upload/img/s1.jpg" data-lightbox="s3"><img src="upload/20141106133101.jpg" alt="" /></a>
+					<a href="upload/img/s2.jpg" data-lightbox="s3"><img src="upload/20141106133106.jpg" alt="" /></a>
+					<a href="upload/img/s3.jpg" data-lightbox="s3"><img src="upload/20141106133111.jpg" alt="" /></a>
+					<a href="upload/img/s4.jpg" data-lightbox="s3"><img src="upload/20141106133129.jpg" alt="" /></a>
+					<a href="upload/img/s1.jpg" data-lightbox="s3"><img src="upload/20141106133101.jpg" alt="" /></a>
+				</div>
+			</div>
+			<div class="section s4">
+				<h3><img src="images/03_03.png"/></h3>
+				<div class="box">
+				
+					<a href="upload/img/s1.jpg" data-lightbox="s4"><img src="upload/20141106133101.jpg" alt="" /></a>
+					<a href="upload/img/s2.jpg" data-lightbox="s4"><img src="upload/20141106133106.jpg" alt="" /></a>
+					<a href="upload/img/s3.jpg" data-lightbox="s4"><img src="upload/20141106133111.jpg" alt="" /></a>
+					<a href="upload/img/s4.jpg" data-lightbox="s4"><img src="upload/20141106133129.jpg" alt="" /></a>
+				
+				</div>
+			</div>
+			<div class="section s5">
+				<h3><img src="images/05_03.png"/></h3>
+				<div class="box">
+				
+					<a href="upload/img/s1.jpg" data-lightbox="s5"><img src="upload/20141106133101.jpg" alt="" /></a>
+					<a href="upload/img/s2.jpg" data-lightbox="s5"><img src="upload/20141106133106.jpg" alt="" /></a>
+					
+				
+				</div>
+			</div>
+			<div class="section s6">
+				<h3><img src="images/06_03.png"/></h3>
+				<div class="box">
+				
+					<a href="upload/img/s1.jpg" data-lightbox="s2"><img src="upload/20141106133101.jpg" alt="" /></a>
+					<a href="upload/img/s2.jpg" data-lightbox="s2"><img src="upload/20141106133106.jpg" alt="" /></a>
+					<a href="upload/img/s3.jpg" data-lightbox="s2"><img src="upload/20141106133111.jpg" alt="" /></a>
+					<a href="upload/img/s4.jpg" data-lightbox="s2"><img src="upload/20141106133129.jpg" alt="" /></a>
+				
+				</div>
+			</div>
+			<div class="section s7">
+				<h3><img src="images/07_03.png"/></h3>
+				<div class="box">
+				<p>活动时间： <br />12月15日至2月15日</p>
+				</div>
+			</div>
+			<div class="section s8">
+				<h3><img src="images/08_03.png"/></h3>
+				<div class="boox"><h5>公司简介</h5><p>北京叠翠谷旅游开发有限公司全资开发建设的闲云山房项目，位于北京市怀柔区喇叭沟门原始森林自然保护区内，总占地面积3000亩，是集生态养殖、种植、餐饮、住宿、观光、会议、健康养生为一体的综合性度假区。拥有自然景观十多处，特色别墅30栋，餐厅1栋，多功能厅1栋。此生态区是北京仅有的非雾霾环境区域，是大自然赐予我们的天然大氧吧。</p></div>
+				<div class="lianxi">
+			<p><img src="images/l1.png" alt="" /></p>
+			<p>联系人：张先生</p>
+			<p>联系电话：010-616702988</p>
+			<p>手机：010-13581784389</p>
+			<p>地 址：北京市怀柔区喇叭沟门原始森林公园大门口</p></div>
+			</div>
+			
+		</div>
+		<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+		<script type="text/javascript" src="js/jquery.fullPage.js"></script>
+		<script src="js/lightbox.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("#main").fullpage({
+					sectionsColor:['#1bbc9b', '#4BBFC3', '#7BAABE', '#f90',"#ff6644","yellow","green"],
+					continuousVertical:true,
+				afterLoad: function(anchorLink, index){
+				if(index==2){
+					$(".s2 h3").css("left","400px")
+					$(".s2 .box").css("bottom","-150px")
+				}
+				if(index>=2){$(".header").slideDown(1200)
+				$("#menu").slideUp(100)}else{$(".header").slideUp(100)
+				$("#menu").slideDown(1200)}
+				if(index==3){
+					$(".s3 h3").css("left","550px")
+					$(".s3 .box").css("left","500px")
+				}
+				if(index==4){
+					$(".s4 h3").css("left","360px")
+					$(".s4 .box").css("left","300px")
+				}
+				if(index==5){
+					$(".s5 h3").css("left","750px")
+					$(".s5 .box").css("left","550px")
+				}
+				if(index==6){
+					$(".s6 h3").css("left","1100px")
+					$(".s6 .box").css("bottom","-150px")
+				}
+				if(index==8){
+					$(".prenext").removeClass("next").addClass("pre");
+					$(".prenext").unbind("click",$.fn.fullpage.moveSectionDown);
+					$(".prenext").bind("click",$.fn.fullpage.moveSectionUp);
+				}else{
+					$(".prenext").removeClass("pre").addClass("next");
+          			$(".prenext").unbind("click",$.fn.fullpage.moveSectionUp);
+         			$(".prenext").bind("click",$.fn.fullpage.moveSectionDown)   
+        }
+				//if ed
+				},//afterload ed
+				onLeave: function(index, direction){
+				if(index==2){
+				$(".s2 h3").css("left","-120%")	
+				$(".s2 .box").css("bottom","-100%")
+				}
+				if(index==3){
+				$(".s3 h3").css("left","-120%")	
+				$(".s3 .box").css("left","-100%")
+				}
+				if(index==4){
+				$(".s4 h3").css("left","-120%")	
+				$(".s4 .box").css("left","-100%")
+				}
+				if(index==5){
+				$(".s5 h3").css("left","-120%")	
+				$(".s5 .box").css("left","-100%")
+				}
+				if(index==6){
+				$(".s6 h3").css("left","-120%")	
+				$(".s6 .box").css("bottom","-100%")
+				}
+				},//onLeave
+				'navigation': false,
+				anchors: ['page1', 'page2', 'page3', 'page4','page5','page6','page7','page8'],
+				menu: '#menu',
+				menu:'#mens'
+				})
+			})
+		</script>
+	</body>
+</html>
